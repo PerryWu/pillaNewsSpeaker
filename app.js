@@ -40,8 +40,9 @@ app.get('/', function(req, res){
 	res.redirect('index.html');
 });
 
+app.get('/rsslist/apple', apple.getRssList);
+app.get('/titlelist/apple', apple.getTitleList);
 /*
-app.get('/files', fileList.getFileList);
 app.post('/files', fileList.actFiles);
 app.get('/folders', fileList.getFolderList);
 */

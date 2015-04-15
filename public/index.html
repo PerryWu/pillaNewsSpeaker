@@ -27,82 +27,64 @@
 
 	<body>
 
-		<!-- Y/N Popup page -->
-		<div id="popupYnPage" data-theme="a">
-			<!-- This popup has its theme explicitly defined via data-theme="a"
-			because it has no parent from which to automatically inherit
-			its theme -->
-			<div data-role="header">
-				<h1>Confirmation </h1>
-			</div>
-			<div role="main" class="ui-content">
-				<h3 id="ynPageConfirmationMsg"> Are you sure to xxxx</h3>
-				<a href="#" id="pilla_btn_y" class="ui-btn" data-transition="flow">Yes</a>
-				<a href="#" id="pilla_btn_n" class="ui-btn" data-rel="back">No</a>
-			</div>
-		</div>
-
 		<!-- Main page -->
 		<div data-role="page" id="mainPage">
 			<div data-role="header">
-				<h1>Pilla File Browser</h1>
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#" class="pilla_btn_home" data-icon="home">Home</a></li>
-						<li><a href="#" class="pilla_btn_up" data-icon="arrow-u">Up</a></li>
-					</ul>
-				</div>
+				<h1>Pilla RSS Speaker</h1>
 			</div>
 
-			<div data-role="main">
-				<h3 id="mainPagePath" style="word-wrap: break-word !important"></h3>
+			<div data-role="main" class="ui-content">
 				<ul data-role="listview" data-inset="true" id="pilla_main_list" data-theme="a">
+					<li><a href="#" class="pilla_rss_apple">
+						<img src=apple.jpg>
+						<h2> Apple Daily News</h2>
+						<p> balabala</p></a>
+					</li>
+					<li><a href="#rssPage">
+						<h2> XXX News</h2>
+						<p> balabala</p></a>
+					</li>
 				</ul>
 			</div>
+		</div>
 
-			<div data-role="footer" data-position="fixed" class="ui-btn">
-				<a href="#" class="pilla_btn_move" data-role="button">Move</a>
-				<a href="#" class="pilla_btn_copy" data-role="button">Copy</a>
-				<a href="#popupYnPage" class="pilla_btn_delete" data-rel="popup" data-role="button" data-position-to="window">Delete</a>
-			</div> 
-		</div> 
-
-		<!-- Item page -->
-		<div data-role="page" id="itemPage">
+		<!-- RSS page -->
+		<div data-role="page" id="rssPage">
 			<div data-role="header">
-				<h1 id="itemPageHeaderMsg"></h1>
-			</div>
-
-			<div data-role="main" class="ui-content">
-				<div id="itemPageContentMsg">
-					<h3> File path: XXXX/XXX/XXX </h3>
-					<h3> File size: XXXX </h3>
-					<h3> Last modified time: XXXX </h3>
-				</div>
-				<a href="#" class="pilla_btn_move" data-role="button">Move</a>
-				<a href="#" class="pilla_btn_copy" data-role="button">Copy</a>
-				<a href="#popupYnPage" class="pilla_btn_delete" data-rel="popup" data-role="button" data-position-to="window">Delete</a>
-				<a href="#" data-role="button" data-rel="back">Cancel</a>
-			</div>
-		</div> 
-
-		<!-- Tree page -->
-		<div data-role="page" id="treePage">
-			<div data-role="header">
-				<h1>Path Selection</h1>
+				<h1 id="rssPageHeaderMsg">RSS</h1>
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#" class="pilla_btn_home" data-icon="home">Home</a></li>
-						<li><a href="#" class="pilla_btn_up" data-icon="arrow-u">Up</a></li>
-						<li><a href="#popupYnPage" class="pilla_btn_here" data-rel="popup" data-icon="check" data-position-to="window">Here</a></li>
-						<li><a href="#" data-icon="back" data-rel="back">Cancel</a></li>
+						<li><a href="#" class="pilla_btn_back" data-icon="back" data-rel="back">Back</a></li>
 					</ul>
 				</div>
 			</div>
 
 			<div data-role="main" class="ui-content">
-				<h3 id="treePagePathMsg" style="word-wrap: break-word !important"></h3>
-				<ul data-role="listview" data-inset="true" id="pilla_tree_list">
+				<ul data-role="listview" data-inset="true" id="pilla_rss_list" data-theme="a">
+					<li><a href="#titleListPage"> balabala</a></li>
+					<li><a href="#titleListPage"> balabala 2</a></li>
+				</ul>
+			</div>
+		</div> 
+
+		<!-- Title List page -->
+		<div data-role="page" id="titleListPage">
+			<div data-role="header">
+				<h1 id="titleListPageHeaderMsg">Category</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" class="pilla_btn_home" data-icon="back" data-rel="back">Back</a></li>
+						<li><a href="#" class="pilla_btn_refresh" data-icon="refresh" >Refresh</a></li>
+						<li><a href="#" class="pilla_btn_speak" data-icon="audio">Speak</a></li>
+						<li><a href="#" class="pilla_btn_stop" data-icon="forbidden">Stop</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<ul data-role="listview" data-inset="true" id="pilla_title_list">
+					<li data-icon="false"><a href="#"> balabala</a></li>
+					<li data-icon="false"><a href="#"> balabala 2</a></li>
 				</ul>
 			</div>
 		</div>
