@@ -63,7 +63,7 @@
 		$("#rssPageHeaderMSg").text(service);
 		currentService = service;
 		for(i = 0; i < items.length; i++) {
-			var liEntry = $('<li>').html('<a href="#">' + items[i].category + '</a>');
+			var liEntry = $('<li>').html('<a href="#titleListPage">' + items[i].category + '</a>');
 
 			(function (selector, link) {
 				var rssLink = link;
@@ -84,7 +84,7 @@
 		$("#pilla_title_list").empty();
 		$("#titleListPageHeaderMSg").text(category);
 		for(i = 0; i < titles.length; i++) {
-			var liEntry = $('<li data-icon="false">').html('<a href="#">' + titles[i] + '</a>');
+			var liEntry = $('<li data-icon="false">').html('<a href="#">' + titles[i].title + '</a>');
 			$("#pilla_title_list").append(liEntry);
 		}
 		$("#pilla_title_list").listview('refresh');

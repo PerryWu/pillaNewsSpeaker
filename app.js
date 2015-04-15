@@ -18,6 +18,7 @@ var _ = require('lodash');
 var fs = require('fs');
 var util = require('util');
 var async = require('async');
+var apple = require('./lib/apple');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
