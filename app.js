@@ -19,6 +19,7 @@ var fs = require('fs');
 var util = require('util');
 var async = require('async');
 var apple = require('./lib/apple');
+var tts = require('./lib/tts');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -43,6 +44,13 @@ app.get('/', function(req, res){
 
 app.get('/rsslist/apple', apple.getRssList);
 app.get('/titlelist/apple', apple.getTitleList);
+
+app.post('/speak', function (req, res) {
+	console.log(req.body);
+	tts.speak(decodeURIComponent(req.body.words), 'zh-TW', function(){
+		res.send({status:"done"});
+	});
+});
 /*
 app.post('/files', fileList.actFiles);
 app.get('/folders', fileList.getFolderList);

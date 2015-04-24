@@ -30,12 +30,12 @@ request({
 		var $ = cheerio.load(html);
 
 		$('.each_level .inst a').each(function(i, element){
-			console.log($(this).html());
+			console.log($(this).attr("href"));
 			console.log($(this).text());
 		});
-
-		$('.each_level .inst_all li').each(function(i, element){
-			console.log($(this).html());
+		console.log("another");
+		$('.each_level .inst_all li a').each(function(i, element){
+			console.log($(this).attr("href"));
 			console.log($(this).text());
 		});
     }
