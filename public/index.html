@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>Pilla File Browser</title>
+
+		<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="app.js"></script>
+
+		<!--
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		-->
+
+	</head>
+
+	<body>
+
+		<!-- Y/N Popup page -->
+		<div id="popupYnPage" data-theme="a">
+			<!-- This popup has its theme explicitly defined via data-theme="a"
+			because it has no parent from which to automatically inherit
+			its theme -->
+			<div data-role="header">
+				<h1>Confirmation </h1>
+			</div>
+			<div role="main" class="ui-content">
+				<h3 id="ynPageConfirmationMsg"> Are you sure to xxxx</h3>
+				<a href="#" id="pilla_btn_y" class="ui-btn" data-transition="flow">Yes</a>
+				<a href="#" id="pilla_btn_n" class="ui-btn" data-rel="back">No</a>
+			</div>
+		</div>
+
+		<!-- Main page -->
+		<div data-role="page" id="mainPage">
+			<div data-role="header">
+				<h1>Pilla File Browser</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" class="pilla_btn_home" data-icon="home">Home</a></li>
+						<li><a href="#" class="pilla_btn_up" data-icon="arrow-u">Up</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div data-role="main">
+				<h3 id="mainPagePath" style="word-wrap: break-word !important"></h3>
+				<ul data-role="listview" data-inset="true" id="pilla_main_list" data-theme="a">
+				</ul>
+			</div>
+
+			<div data-role="footer" data-position="fixed" class="ui-btn">
+				<a href="#" class="pilla_btn_move" data-role="button">Move</a>
+				<a href="#" class="pilla_btn_copy" data-role="button">Copy</a>
+				<a href="#popupYnPage" class="pilla_btn_delete" data-rel="popup" data-role="button" data-position-to="window">Delete</a>
+			</div> 
+		</div> 
+
+		<!-- Item page -->
+		<div data-role="page" id="itemPage">
+			<div data-role="header">
+				<h1 id="itemPageHeaderMsg"></h1>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<div id="itemPageContentMsg">
+					<h3> File path: XXXX/XXX/XXX </h3>
+					<h3> File size: XXXX </h3>
+					<h3> Last modified time: XXXX </h3>
+				</div>
+				<a href="#" class="pilla_btn_move" data-role="button">Move</a>
+				<a href="#" class="pilla_btn_copy" data-role="button">Copy</a>
+				<a href="#popupYnPage" class="pilla_btn_delete" data-rel="popup" data-role="button" data-position-to="window">Delete</a>
+				<a href="#" data-role="button" data-rel="back">Cancel</a>
+			</div>
+		</div> 
+
+		<!-- Tree page -->
+		<div data-role="page" id="treePage">
+			<div data-role="header">
+				<h1>Path Selection</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#" class="pilla_btn_home" data-icon="home">Home</a></li>
+						<li><a href="#" class="pilla_btn_up" data-icon="arrow-u">Up</a></li>
+						<li><a href="#popupYnPage" class="pilla_btn_here" data-rel="popup" data-icon="check" data-position-to="window">Here</a></li>
+						<li><a href="#" data-icon="back" data-rel="back">Cancel</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div data-role="main" class="ui-content">
+				<h3 id="treePagePathMsg" style="word-wrap: break-word !important"></h3>
+				<ul data-role="listview" data-inset="true" id="pilla_tree_list">
+				</ul>
+			</div>
+		</div>
+
+	</body>
+
+</html>
