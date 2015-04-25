@@ -27,11 +27,18 @@
 	function ajaxReqSpeak() {
 		console.log($('#pilla_title_list li').size());
 		console.log(playIndex);
+		var language;
+		if(currentService === 'apple') {
+			language = "zh-TW";
+		} else
+			language = "en";
 		$.ajax( {
 			url: '/speak',
 			method: 'POST',
 			//data: encodeURIComponent(words),
-			data: {words:encodeURIComponent($('#pilla_title_list li:nth-child(' + playIndex + ')').text())},
+			data: {
+				words:encodeURIComponent(playIndex + " " + $('#pilla_title_list li:nth-child(' + playIndex + ')').text()),
+				language: language},
 			//contentType: "application/json",
 			dataType: 'json',
 			timeout: 60000})
@@ -84,6 +91,7 @@
 	};
 
 	var currentService = "";
+	var currentRssLink = "";
 	//
 	// RSS Page: to update list by given items
 	// 
@@ -97,6 +105,7 @@
 			(function (selector, link) {
 				var rssLink = link;
 				$(selector).on("click", function(e) {
+					currentRssLink = rssLink;
 					ajaxReqTitleList("/titleList/" + currentService + "?link=" + rssLink);
 				});
 			})(liEntry, items[i].link);
@@ -124,8 +133,22 @@
 			ajaxReqRssList('apple', "/rssList/apple");
 		});
 		
+		$(".pilla_rss_cnn").on("click", function(e){
+			ajaxReqRssList('cnn', "/rssList/cnn");
+		});
+		
 		$(".pilla_btn_speak").on("click", function(e){
+			playStop = 0;
 			ajaxReqSpeak();
+		});
+
+		$(".pilla_btn_stop").on("click", function(e){
+			playStop = 1;
+			playIndex = 1;
+		});
+
+		$(".pilla_btn_refresh").on("click", function(e){
+			ajaxReqTitleList("/titleList/" + currentService + "?link=" + currentRssLink);
 		});
 	});
 

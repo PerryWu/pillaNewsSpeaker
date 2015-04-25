@@ -19,6 +19,7 @@ var fs = require('fs');
 var util = require('util');
 var async = require('async');
 var apple = require('./lib/apple');
+var cnn = require('./lib/cnn');
 var tts = require('./lib/tts');
 
 // all environments
@@ -44,17 +45,15 @@ app.get('/', function(req, res){
 
 app.get('/rsslist/apple', apple.getRssList);
 app.get('/titlelist/apple', apple.getTitleList);
+app.get('/rsslist/cnn', cnn.getRssList);
+app.get('/titlelist/cnn', cnn.getTitleList);
 
 app.post('/speak', function (req, res) {
 	console.log(req.body);
-	tts.speak(decodeURIComponent(req.body.words), 'zh-TW', function(){
-		res.send({status:"done"});
+	tts.speak(decodeURIComponent(req.body.words), req.body.language, function(){
+		res.json({status:"done"});
 	});
 });
-/*
-app.post('/files', fileList.actFiles);
-app.get('/folders', fileList.getFolderList);
-*/
 
 // development only
 if ('development' == app.get('env')) {

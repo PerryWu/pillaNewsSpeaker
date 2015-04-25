@@ -19,23 +19,19 @@ var parser = new htmlparser.Parser( handler, {
 */
 
 request({
-    //uri:'http://www.appledaily.com.tw/rss/create/kind/rnews/type/new'
-    uri:'http://www.appledaily.com.tw/rss'
+    //uri:'http://www.appledaily.com.tw/rss'
+    uri:'http://rss.cnn.com/rss/edition.rss'
     , headers: {'User-Agent': 'Mozilla/5.0'}}, function (error, response, html) {
     if (!error && response.statusCode == 200) {
-	/*
-		parser.write(html);
-		parser.end();
-	*/
-		var $ = cheerio.load(html);
 
-		$('.each_level .inst a').each(function(i, element){
-			console.log($(this).attr("href"));
+		//console.log(html);
+		var $ = cheerio.load(html, {decodeEntities: true, xmlMode: true});
+
+		$('image title').each(function(i, element){
 			console.log($(this).text());
 		});
-		console.log("another");
-		$('.each_level .inst_all li a').each(function(i, element){
-			console.log($(this).attr("href"));
+
+		$('item title').each(function(i, element){
 			console.log($(this).text());
 		});
     }
