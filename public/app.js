@@ -39,9 +39,9 @@
 			data: {
 				words:encodeURIComponent(playIndex + " " + $('#pilla_title_list li:nth-child(' + playIndex + ')').text()),
 				language: language},
-			//contentType: "application/json",
-			dataType: 'json',
-			timeout: 60000})
+				//contentType: "application/json",
+				dataType: 'json',
+		timeout: 60000})
 		.done(function(data) {
 			console.log("done callback. data:" + data);
 			if(playStop === 0 && playIndex <= $('#pilla_title_list li').size()) {
@@ -61,7 +61,7 @@
 		$.ajax( {
 			url: urlPath,
 			method: 'GET',
-			timeout: 10000})
+		timeout: 10000})
 		.done(function(data) {
 			hideLoading();
 			$(':mobile-pagecontainer').pagecontainer('change', '#rssPage');
@@ -78,7 +78,7 @@
 		$.ajax( {
 			url: urlPath,
 			method: 'GET',
-			timeout: 10000})
+		timeout: 10000})
 		.done(function(data) {
 			hideLoading();
 			$(':mobile-pagecontainer').pagecontainer('change', '#titleListPage');
@@ -132,11 +132,11 @@
 		$(".pilla_rss_apple").on("click", function(e){
 			ajaxReqRssList('apple', "/rssList/apple");
 		});
-		
+
 		$(".pilla_rss_cnn").on("click", function(e){
 			ajaxReqRssList('cnn', "/rssList/cnn");
 		});
-		
+
 		$(".pilla_btn_speak").on("click", function(e){
 			playStop = 0;
 			ajaxReqSpeak();
