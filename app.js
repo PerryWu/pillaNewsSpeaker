@@ -1,6 +1,6 @@
 /**
-* Module dependencies.
-*/
+ * Module dependencies.
+ */
 
 var express = require('express');
 var http = require('http');
@@ -30,7 +30,9 @@ app.set('view engine', 'html');
 app.use(logger(':method :url'));
 app.use(methodOverride('_method'));
 app.use(cookieParser('pilla'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+	extended: false
+}));
 app.use(bodyParser.json());
 app.use(session({
 	resave: false, // don't save session if unmodified
@@ -39,7 +41,7 @@ app.use(session({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function(req, res){
+app.get('/', function(req, res) {
 	res.redirect('index.html');
 });
 
@@ -48,10 +50,12 @@ app.get('/titlelist/apple', apple.getTitleList);
 app.get('/rsslist/cnn', cnn.getRssList);
 app.get('/titlelist/cnn', cnn.getTitleList);
 
-app.post('/speak', function (req, res) {
+app.post('/speak', function(req, res) {
 	console.log(req.body);
-	tts.speak(decodeURIComponent(req.body.words), req.body.language, function(){
-		res.json({status:"done"});
+	tts.speak(decodeURIComponent(req.body.words), req.body.language, function() {
+		res.json({
+			status: "done"
+		});
 	});
 });
 
@@ -60,7 +64,6 @@ if ('development' == app.get('env')) {
 	app.use(errorhandler());
 }
 
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(app.get('port'), function() {
 	console.log('Express server listening on port ' + app.get('port'));
 });
-
