@@ -34,7 +34,7 @@
 		} else
 			language = "en";
 		$.ajax({
-				url: '/speak',
+				url: 'speak',
 				method: 'POST',
 				//data: encodeURIComponent(words),
 				data: {
@@ -111,7 +111,7 @@
 				var rssLink = link;
 				$(selector).on("click", function(e) {
 					currentRssLink = rssLink;
-					ajaxReqTitleList("/titleList/" + currentService + "?link=" + rssLink);
+					ajaxReqTitleList("titleList/" + currentService + "?link=" + rssLink);
 				});
 			})(liEntry, items[i].link);
 
@@ -135,11 +135,11 @@
 
 	$(document).ready(function() {
 		$(".pilla_rss_apple").on("click", function(e) {
-			ajaxReqRssList('apple', "/rssList/apple");
+			ajaxReqRssList('apple', "rssList/apple");
 		});
 
 		$(".pilla_rss_cnn").on("click", function(e) {
-			ajaxReqRssList('cnn', "/rssList/cnn");
+			ajaxReqRssList('cnn', "rssList/cnn");
 		});
 
 		$(".pilla_btn_speak").on("click", function(e) {
@@ -153,7 +153,7 @@
 		});
 
 		$(".pilla_btn_refresh").on("click", function(e) {
-			ajaxReqTitleList("/titleList/" + currentService + "?link=" + currentRssLink);
+			ajaxReqTitleList("titleList/" + currentService + "?link=" + currentRssLink);
 		});
 	});
 
